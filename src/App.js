@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Location from './sections/Location'
+import Position from './sections/Position'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Back Porch Bakery Application</h1>
+      <Location />
+      <Position />
+      <div>Food Experience</div>
+      <div>Baking Experience</div>
+      <div>Early Mornings</div>
+      <div>Full or Part Time</div>
+      <div>Current Work situation</div>
+      <div>Attach a resume</div>
     </div>
   );
 }
