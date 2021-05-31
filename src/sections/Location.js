@@ -1,46 +1,56 @@
 
-import React, { useState } from 'react';
-import { Checkbox } from 'primereact/checkbox';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import FormLabel from '@material-ui/core/FormLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import Checkbox from '@material-ui/core/Checkbox';
 
-const Location = () => {
-    
-    
-    const [cities, setCities] = useState([]);
-    
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+  },
+  formControl: {
+    margin: theme.spacing(3),
+  },
+}));
 
-    
+function Location() {
+  const classes = useStyles();
+  const [state, setState] = React.useState({
+    gilad: true,
+    jason: false,
+    antoine: false,
+  });
 
+  const handleChange = (event) => {
+    setState({ ...state, [event.target.name]: event.target.checked });
+  };
 
-    const onCityChange = (e) => {
-        let selectedCities = [...cities];
+  const { SanLuisObispo, Atascadero } = state;
+  
 
-        if (e.checked)
-            selectedCities.push(e.value);
-        else
-            selectedCities.splice(selectedCities.indexOf(e.value), 1);
-
-        setCities(selectedCities);
-    }
-
-    return (
-        <div>
-            <div className="card">
-                
-                <h5>Preferred Work Location (You can choose both if you want)</h5>
-                <div className="p-field-checkbox">
-                    <Checkbox inputId="city1" name="city" value="San Luis Obispo" onChange={onCityChange} checked={cities.indexOf('San Luis Obispo') !== -1} />
-                    <label htmlFor="city1">San Luis Obispo</label>
-                </div>
-                <div className="p-field-checkbox">
-                    <Checkbox inputId="city2" name="city" value="Atascadero" onChange={onCityChange} checked={cities.indexOf('Atascadero') !== -1} />
-                    <label htmlFor="city2">Atascadero</label>
-                </div>
-                
-
-               
-            </div>
-        </div>
-    )
+  return (
+    <div className={classes.root}>
+      <FormControl component="fieldset" className={classes.formControl}>
+        <FormLabel component="legend">Where do you want to work?</FormLabel>
+        <FormGroup>
+          <FormControlLabel
+            control={<Checkbox checked={SanLuisObispo} onChange={handleChange} name="SanLuisObispo" />}
+            label="San Luis Obispo"
+          />
+          <FormControlLabel
+            control={<Checkbox checked={Atascadero} onChange={handleChange} name="Atascadero" />}
+            label="Atascadero"
+          />
+        </FormGroup>
+        <FormHelperText>(You can choose both)</FormHelperText>
+      </FormControl>
+     
+    </div>
+  );
 }
 
 export default Location;

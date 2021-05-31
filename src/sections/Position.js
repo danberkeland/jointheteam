@@ -1,54 +1,69 @@
 
-import React, { useState } from 'react';
-import { Checkbox } from 'primereact/checkbox';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import FormLabel from '@material-ui/core/FormLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import Checkbox from '@material-ui/core/Checkbox';
 
-const Position = () => {
-    
-    
-    const [positions, setPositions] = useState([]);
-    
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+  },
+  formControl: {
+    margin: theme.spacing(3),
+  },
+}));
 
-    
+function Position() {
+  const classes = useStyles();
+  const [state, setState] = React.useState({
+    gilad: true,
+    jason: false,
+    antoine: false,
+  });
 
+  const handleChange = (event) => {
+    setState({ ...state, [event.target.name]: event.target.checked });
+  };
 
-    const onPositionChange = (e) => {
-        let selectedPositions = [...positions];
+  const { Baker, Cook, Cashier, Barrista, Driver } = state;
+  
 
-        if (e.checked)
-            selectedPositions.push(e.value);
-        else
-            selectedPositions.splice(selectedPositions.indexOf(e.value), 1);
-
-        setPositions(selectedPositions);
-    }
-
-    return (
-        <div>
-            <div className="card">
-                
-                <h5>Preferred Position (Check all that apply)</h5>
-                <div className="p-field-checkbox">
-                    <Checkbox inputId="position1" name="position" value="Baker" onChange={onPositionChange} checked={positions.indexOf('Baker') !== -1} />
-                    <label htmlFor="position1">Baker</label>
-                </div>
-                <div className="p-field-checkbox">
-                    <Checkbox inputId="position2" name="position" value="Cook/Kitchen Prep" onChange={onPositionChange} checked={positions.indexOf('Cook/Kitchen Prep') !== -1} />
-                    <label htmlFor="position2">Cook/Kitchen Prep</label>
-                </div>
-                <div className="p-field-checkbox">
-                    <Checkbox inputId="position3" name="position" value="Cashier" onChange={onPositionChange} checked={positions.indexOf('Cashier') !== -1} />
-                    <label htmlFor="position3">Cashier</label>
-                </div>
-                <div className="p-field-checkbox">
-                    <Checkbox inputId="position4" name="position" value="Driver" onChange={onPositionChange} checked={positions.indexOf('Driver') !== -1} />
-                    <label htmlFor="position4">Driver</label>
-                </div>
-                
-
-               
-            </div>
-        </div>
-    )
+  return (
+    <div className={classes.root}>
+      <FormControl component="fieldset" className={classes.formControl}>
+        <FormLabel component="legend">For which position are you applying?</FormLabel>
+        <FormGroup>
+          <FormControlLabel
+            control={<Checkbox checked={Baker} onChange={handleChange} name="Baker" />}
+            label="Baker"
+          />
+          <FormControlLabel
+            control={<Checkbox checked={Cook} onChange={handleChange} name="Cook" />}
+            label="Cook/Kitchen Prep"
+          />
+          <FormControlLabel
+            control={<Checkbox checked={Cashier} onChange={handleChange} name="Cashier" />}
+            label="Cashier"
+          />
+          <FormControlLabel
+            control={<Checkbox checked={Barrista} onChange={handleChange} name="Barrista" />}
+            label="Barrista"
+          />
+           <FormControlLabel
+            control={<Checkbox checked={Driver} onChange={handleChange} name="Driver" />}
+            label="Driver"
+          />
+         
+        </FormGroup>
+        <FormHelperText>(You can choose more than one)</FormHelperText>
+      </FormControl>
+     
+    </div>
+  );
 }
 
 export default Position;

@@ -2,6 +2,8 @@
 import './App.css';
 import Location from './sections/Location'
 import Position from './sections/Position'
+import FoodExperience from './sections/FoodExperience'
+import BakeryExperience from './sections/BakeryExperience'
 
 function App() {
   return (
@@ -9,8 +11,8 @@ function App() {
       <h1>Back Porch Bakery Application</h1>
       <Location />
       <Position />
-      <div>Food Experience</div>
-      <div>Baking Experience</div>
+      <FoodExperience/>
+      <BakeryExperience/>
       <div>Early Mornings</div>
       <div>Full or Part Time</div>
       <div>Current Work situation</div>
