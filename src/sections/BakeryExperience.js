@@ -42,9 +42,9 @@ export default function BakeryExperience() {
           displayEmpty
           className={classes.selectEmpty}
         >
-          <MenuItem value={10}>Not much but ready to learn</MenuItem>
-          <MenuItem value={20}>A little bit of restaurant experience</MenuItem>
-          <MenuItem value={30}>A lot of restaurant experience</MenuItem>
+          <MenuItem value={10}>Not much but I bake at home</MenuItem>
+          <MenuItem value={20}>A little bit of bakery experience</MenuItem>
+          <MenuItem value={30}>A lot of bakery experience</MenuItem>
         </Select>
       
       </FormControl>
