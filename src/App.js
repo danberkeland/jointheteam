@@ -12,6 +12,15 @@ import React from "react";
 
 import styled from "styled-components";
 
+const WholePage = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  margin: auto;
+  
+`
+
 const WholeBox = styled.div`
   display: flex;
   flex-direction: column;
@@ -22,8 +31,10 @@ const WholeBox = styled.div`
 
 function App() {
   return (
-    <WholeBox>
+    <WholePage>
+      <WholeBox>
       <h1>Back Porch Bakery Application</h1>
+
 
       <Info />
       <FullorPart />
@@ -35,6 +46,8 @@ function App() {
       <AboutYou />
       <Submit />
     </WholeBox>
+    </WholePage>
+    
   );
 }
 
