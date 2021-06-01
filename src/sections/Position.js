@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
@@ -19,17 +19,13 @@ const useStyles = makeStyles((theme) => ({
 
 function Position() {
   const classes = useStyles();
-  const [state, setState] = React.useState({
-    gilad: true,
-    jason: false,
-    antoine: false,
-  });
+  const [state, setState] = useState({});
 
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
 
-  const { Baker, Cook, Cashier, Barrista, Driver } = state;
+  const { Baker, Cook, Cashier, Barista, Driver } = state;
   
 
   return (
@@ -50,8 +46,8 @@ function Position() {
             label="Cashier"
           />
           <FormControlLabel
-            control={<Checkbox checked={Barrista} onChange={handleChange} name="Barrista" />}
-            label="Barrista"
+            control={<Checkbox checked={Barista} onChange={handleChange} name="Barista" />}
+            label="Barista"
           />
            <FormControlLabel
             control={<Checkbox checked={Driver} onChange={handleChange} name="Driver" />}

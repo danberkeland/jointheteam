@@ -1,27 +1,40 @@
+import "./App.css";
+import Info from "./sections/Info";
+import FullorPart from "./sections/FullorPart";
+import Location from "./sections/Location";
+import Position from "./sections/Position";
+import FoodExperience from "./sections/FoodExperience";
+import BakeryExperience from "./sections/BakeryExperience";
+import CurrentSituation from "./sections/CurrentSituation";
+import AboutYou from "./sections/AboutYou";
+import Submit from "./sections/Submit";
+import React from "react";
 
-import './App.css';
-import Info from './sections/Info'
-import FullorPart from './sections/FullorPart'
-import Location from './sections/Location'
-import Position from './sections/Position'
-import FoodExperience from './sections/FoodExperience'
-import BakeryExperience from './sections/BakeryExperience'
-import CurrentSituation from './sections/CurrentSituation'
+import styled from "styled-components";
+
+const WholeBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: auto;
+  
+`;
 
 function App() {
   return (
-    <div className="App">
+    <WholeBox>
       <h1>Back Porch Bakery Application</h1>
+
       <Info />
       <FullorPart />
       <Location />
       <Position />
       <FoodExperience />
-      <BakeryExperience />  
+      <BakeryExperience />
       <CurrentSituation />
-
-      <div>Attach a resume</div>
-    </div>
+      <AboutYou />
+      <Submit />
+    </WholeBox>
   );
 }
 

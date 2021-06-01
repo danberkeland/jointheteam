@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
@@ -19,11 +19,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Location() {
   const classes = useStyles();
-  const [state, setState] = React.useState({
-    gilad: true,
-    jason: false,
-    antoine: false,
-  });
+  const [state, setState] = useState({});
 
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
