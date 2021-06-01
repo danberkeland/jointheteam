@@ -3,6 +3,7 @@ import Info from "./sections/Info";
 import FullorPart from "./sections/FullorPart";
 import Location from "./sections/Location";
 import Position from "./sections/Position";
+import DesiredPay from "./sections/DesiredPay";
 import FoodExperience from "./sections/FoodExperience";
 import BakeryExperience from "./sections/BakeryExperience";
 import CurrentSituation from "./sections/CurrentSituation";
@@ -43,6 +44,7 @@ function App() {
       <FoodExperience />
       <BakeryExperience />
       <CurrentSituation />
+      <DesiredPay />
       <AboutYou />
       <Submit />
     </WholeBox>
