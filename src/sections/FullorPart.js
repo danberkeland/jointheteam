@@ -16,20 +16,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function FullorPart() {
+function FullorPart({ seeking, setSeeking }) {
   const classes = useStyles();
-  const [state, setState] = React.useState({
-    gilad: true,
-    jason: false,
-    antoine: false,
-  });
+  
 
   const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
+    setSeeking({ ...seeking, [event.target.name]: event.target.checked });
   };
 
-  const { FullTime, PartTime } = state;
-  
+  const { FullTime, PartTime } = seeking
 
   return (
     <div className={classes.root}>

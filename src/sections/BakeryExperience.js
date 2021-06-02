@@ -2,7 +2,6 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
@@ -17,12 +16,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function BakeryExperience() {
+export default function BakeryExperience({ bakeryExp, setBakeryExp }) {
   const classes = useStyles();
-  const [age, setAge] = React.useState('');
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setBakeryExp(event.target.value);
   };
 
   return (
@@ -37,14 +35,14 @@ export default function BakeryExperience() {
         <Select
           labelId="demo-simple-select-placeholder-label-label"
           id="demo-simple-select-placeholder-label"
-          value={age}
+          value={bakeryExp}
           onChange={handleChange}
           displayEmpty
           className={classes.selectEmpty}
         >
-          <MenuItem value={10}>Not much but I bake at home</MenuItem>
-          <MenuItem value={20}>A little bit of bakery experience</MenuItem>
-          <MenuItem value={30}>A lot of bakery experience</MenuItem>
+          <MenuItem value={"Not much but I bake at home"}>Not much but I bake at home</MenuItem>
+          <MenuItem value={"A little bit of bakery experience"}>A little bit of bakery experience</MenuItem>
+          <MenuItem value={"A lot of bakery experience"}>A lot of bakery experience</MenuItem>
         </Select>
       
       </FormControl>

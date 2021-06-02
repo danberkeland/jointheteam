@@ -1,0 +1,15 @@
+type Todo @model {
+  id: ID!
+  firstName: String
+  lastName: String
+  phone: String
+  email: String
+  seeking: String
+  where: String
+  position: String
+  kitchenExp: String
+  bakeryExp: String
+  current: String
+  desired: String
+  introduction: String
+}

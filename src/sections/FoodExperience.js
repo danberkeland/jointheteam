@@ -17,12 +17,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function FoodExperience() {
+export default function FoodExperience({ kitchenExp, setKitchenExp }) {
   const classes = useStyles();
-  const [age, setAge] = React.useState('');
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setKitchenExp(event.target.value);
   };
 
   return (
@@ -37,14 +36,14 @@ export default function FoodExperience() {
         <Select
           labelId="demo-simple-select-placeholder-label-label"
           id="demo-simple-select-placeholder-label"
-          value={age}
+          value={kitchenExp}
           onChange={handleChange}
           displayEmpty
           className={classes.selectEmpty}
         >
-          <MenuItem value={10}>Not much but ready to learn</MenuItem>
-          <MenuItem value={20}>A little bit of restaurant experience</MenuItem>
-          <MenuItem value={30}>A lot of restaurant experience</MenuItem>
+          <MenuItem value={"Not much but ready to learn"}>Not much but ready to learn</MenuItem>
+          <MenuItem value={"A little bit of restaurant experience"}>A little bit of restaurant experience</MenuItem>
+          <MenuItem value={"A lot of restaurant experience"}>A lot of restaurant experience</MenuItem>
         </Select>
       
       </FormControl>

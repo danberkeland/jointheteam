@@ -15,17 +15,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Info() {
+export default function Info({ setFirstName, setLastName, setPhone, setEmail }) {
   const classes = useStyles();
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
       
-        <TextField id="firstName" label="First Name" variant="outlined" />
-      <TextField id="lastName" label="Last Name" variant="outlined" />
+        <TextField id="firstName" label="First Name" variant="outlined" onChange = {e => setFirstName(e.target.value)}/>
+      <TextField id="lastName" label="Last Name" variant="outlined" onChange = {e => setLastName(e.target.value)}/>
      
-      <TextField id="phone" label="Phone" variant="outlined" />
-      <TextField id="email" label="Email" variant="outlined" />
+      <TextField id="phone" label="Phone" variant="outlined" onChange = {e => setPhone(e.target.value)}/>
+      <TextField id="email" label="Email" variant="outlined" onChange = {e => setEmail(e.target.value)}/>
       
       
     </form>

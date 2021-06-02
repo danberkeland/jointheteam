@@ -17,15 +17,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Position() {
+function Position({ position, setPosition }) {
   const classes = useStyles();
-  const [state, setState] = useState({});
 
   const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
+    setPosition({ ...position, [event.target.name]: event.target.checked });
   };
 
-  const { Baker, Cook, Cashier, Barista, Driver } = state;
+  const { Baker, Cook, Cashier, Barista, Driver } = position;
   
 
   return (

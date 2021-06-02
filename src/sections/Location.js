@@ -17,15 +17,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Location() {
+function Location({ where, setWhere }) {
   const classes = useStyles();
-  const [state, setState] = useState({});
 
   const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
+    setWhere({ ...where, [event.target.name]: event.target.checked });
   };
 
-  const { SanLuisObispo, Atascadero } = state;
+  const { SanLuisObispo, Atascadero } = where;
   
 
   return (

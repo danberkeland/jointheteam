@@ -22,20 +22,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function InputAdornments() {
+export default function DesiredPay({ desired, setDesired }) {
   const classes = useStyles();
-  const [values, setValues] = React.useState({
-    amount: '',
-    password: '',
-    weight: '',
-    weightRange: '',
-    showPassword: false,
-  });
+  
 
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
-
+  
   
 
   return (
@@ -49,8 +40,8 @@ export default function InputAdornments() {
           <InputLabel htmlFor="outlined-adornment-amount">Desired Pay</InputLabel>
           <Input
             id="outlined-adornment-amount"
-            value={values.amount}
-            onChange={handleChange('amount')}
+            value={desired}
+            onChange = {e => setDesired(e.target.value)}
             startAdornment={<InputAdornment position="start">$</InputAdornment>}
             endAdornment={<InputAdornment position="end">/hr.</InputAdornment>}
             

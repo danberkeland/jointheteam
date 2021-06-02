@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MultilineTextFields() {
+export default function AboutYou({ setIntroduction }) {
   const classes = useStyles();
 
 
@@ -26,6 +26,8 @@ export default function MultilineTextFields() {
           rows={4}
           placeholder="Tell us about yourself ..."
           variant="outlined"
+          onChange = {e => setIntroduction(e.target.value)}
+
         />
       
     </form>

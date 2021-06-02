@@ -17,12 +17,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CurrentSituation() {
+export default function CurrentSituation({ current, setCurrent }) {
   const classes = useStyles();
-  const [age, setAge] = React.useState('');
+  
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setCurrent(event.target.value);
   };
 
   return (
@@ -37,16 +37,16 @@ export default function CurrentSituation() {
         <Select
           labelId="demo-simple-select-placeholder-label-label"
           id="demo-simple-select-placeholder-label"
-          value={age}
+          value={current}
           onChange={handleChange}
           displayEmpty
           className={classes.selectEmpty}
         >
-          <MenuItem value={10}>Not currently employed</MenuItem>
-          <MenuItem value={20}>Employed, but looking for a change</MenuItem>
-          <MenuItem value={30}>Employed, looking for additional work</MenuItem>
+          <MenuItem value={"Not currently employed"}>Not currently employed</MenuItem>
+          <MenuItem value={"Employed, but looking for a change"}>Employed, but looking for a change</MenuItem>
+          <MenuItem value={"Employed, looking for additional work"}>Employed, looking for additional work</MenuItem>
 
-          <MenuItem value={40}>Student</MenuItem>
+          <MenuItem value={"Student"}>Student</MenuItem>
         </Select>
       
       </FormControl>
